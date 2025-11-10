@@ -63,18 +63,22 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#003049] text-[#fdf0d5] flex flex-col items-center justify-center p-6">
+    <main
+  className="min-h-screen bg-[url('https://cdn.discordapp.com/attachments/741002572260704257/1437390643067490405/6d3636d6-2355-4594-8c4a-139768dd78a4.png?ex=691311da&is=6911c05a&hm=2f05421e779a8bc0c2d0b8cb790070242d9e5f023a735f9f8f1f4c24115d4d3a&')]
+             bg-cover bg-center bg-no-repeat
+             text-[#fdf0d5] flex flex-col items-center justify-center p-6 relative"
+  >
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-5xl md:text-7xl font-bold text-center mb-4 text-[#c1121f]"
+        className="text-5xl md:text-7xl font-bold text-center mb-4"
       >
         Soirée du Nouvel An 2025 🎉
       </motion.h1>
 
       <p className="text-lg md:text-xl text-[#fdf0d5]/80 mb-10 text-center max-w-2xl">
-        Rejoins-nous pour célébrer la nouvelle année dans une ambiance magique ! 💫
+        Rejoins-nous pour célébrer la nouvelle année dans une ambiance alcoolique.
       </p>
 
       <section className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
@@ -114,11 +118,6 @@ export default function Home() {
       >
         Je viens à la soirée 🎆
       </motion.button>
-
-      <footer className="mt-16 text-sm text-[#fdf0d5]/60">
-        <PartyPopper className="inline-block w-5 h-5 mr-1 text-[#c1121f]" />
-        Fait avec ❤️ pour le Nouvel An 2025
-      </footer>
 
       {/* --- MODAL INVITÉS --- */}
 <AnimatePresence>
