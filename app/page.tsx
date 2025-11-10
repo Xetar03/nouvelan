@@ -97,12 +97,12 @@ export default function Home() {
         <InfoCard
           icon={<MapPin className="w-8 h-8 text-[#669bbc]" />}
           title="Lieu"
-          text="Chez Alex, 42 rue des Étoiles, Paris"
+          text="Salle des Fêtes de Villechaud, 2 Rue de l'École, Cosne Cours Sur Loire 58200"
         />
         <InfoCard
           icon={<CalendarDays className="w-8 h-8 text-[#669bbc]" />}
           title="Date"
-          text="31 décembre 2025 à 21h00"
+          text="31 décembre 2025 à partir 19h00"
         />
         <InfoCard
           icon={<Music className="w-8 h-8 text-[#669bbc]" />}
