@@ -106,8 +106,8 @@ export default function Home() {
         />
         <InfoCard
           icon={<Music className="w-8 h-8 text-[#669bbc]" />}
-          title="Ambiance"
-          text="DJ, cocktails, jeux et surprises toute la nuit !"
+          title="Informations diverses"
+          text="Copains, Alcool, Clopes pas chère et happening. Voir  plus!"
         />
       </motion.div>
 
@@ -172,13 +172,36 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 className="bg-[#669bbc]/10 border border-[#669bbc]/30 rounded-xl p-4 w-full text-center"
               >
-                <p className="text-lg font-semibold text-[#003049] mb-2">
-                  {selectedGuestData.nom}
-                </p>
-                <p className="text-sm">
-                  <span className="font-semibold">Moyen de paiement :</span>{" "}
-                  {selectedGuestData.moyen || "—"}
-                </p>
+                <div className="w-full">
+                <label className="block mb-2 text-sm font-semibold text-[#003049]">
+                  Moyen de paiement :
+                </label>
+                <select
+                  value={selectedGuestData.moyen || ""}
+                  onChange={async (e) => {
+                    const newValue = e.target.value;
+
+                    const updatedGuests = guests.map((g) =>
+                      g.nom === selectedGuestData.nom ? { ...g, moyen: newValue } : g
+                    );
+                    setGuests(updatedGuests);
+
+                    await fetch("/api/updateMoyen", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        nom: selectedGuestData.nom,
+                        moyen: newValue,
+                      }),
+                    });
+                  }}
+                  className="w-full p-2 rounded-md border border-[#669bbc] bg-white text-[#003049] focus:ring-2 focus:ring-[#669bbc]"
+                >
+                  <option value="">Ne sais pas</option>
+                  <option value="Liquide">Liquide</option>
+                  <option value="Virement">Virement</option>
+                </select>
+              </div>
                 <p
                   className={`mt-2 text-base font-bold ${
                     selectedGuestData.paye?.toLowerCase() === "oui"
@@ -190,10 +213,15 @@ export default function Home() {
                     ? "✅ Payé"
                     : "❌ Non payé"}
                 </p>
+                {selectedGuestData.moyen == "Virement" ? <p
+                  className={`mt-2 text-base font-bold`}
+                >
+                  Faire un virement instantané au 06.68.68.13.84 (Pierre-Matthieu Vimon), Votre cotisation sera prise en compte sous peu !
+                </p> : null}
               </motion.div>
             ) : (
               <p className="text-sm text-[#003049]/70">
-                Choisis ton nom pour voir ton statut
+                Ton nom n'est pas dans la liste ? Envoyez nous un message :)
               </p>
             )}
           </div>
