@@ -216,7 +216,7 @@ export default function Home() {
                 {selectedGuestData.moyen == "Virement" ? <p
                   className={`mt-2 text-base font-bold`}
                 >
-                  Faire un virement instantané au 06.68.68.13.84 (Pierre-Matthieu Vimon), Votre cotisation sera prise en compte sous peu !
+                  Faire un virement instantané (20€) au 0668681384 (Pierre-Matthieu Vimon), Votre cotisation sera prise en compte sous peu !
                 </p> : null}
               </motion.div>
             ) : (
