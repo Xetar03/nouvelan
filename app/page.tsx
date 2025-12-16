@@ -147,7 +147,8 @@ export default function Home() {
                       <p className={`mt-2 text-base font-bold ${selectedGuestData.paye?.toLowerCase() === "oui" ? "text-green-700" : "text-red-700"}`}>
                         {selectedGuestData.paye?.toLowerCase() === "oui" ? "✅ Payé" : "❌ Non payé"}
                       </p>
-                      {selectedGuestData.moyen === "Virement" && <p className="mt-2 text-xs font-bold text-[#003049]/70 italic">Virement instantané (Wero) au 06 68 68 13 84</p>}
+                      {selectedGuestData.moyen === "Virement" && <p className="mt-2 text-xs font-bold text-[#003049]/70 italic">Virement instantané (Wero) au 06 68 68 13 84 (Pierre-Matthieu Vimon)</p>}
+                      {selectedGuestData.moyen === "Liquide" && <p className="mt-2 text-xs font-bold text-[#003049]/70 italic">Rappel : 20 € !</p>}
                     </motion.div>
                   ) : <p className="text-sm text-[#003049]/70 text-center">Ton nom n'est pas dans la liste ? Envoie-nous un message :)</p>}
                 </div>
